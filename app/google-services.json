@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "195977280496",
+    "project_id": "historyofkyrgyzstan-673f8",
+    "storage_bucket": "historyofkyrgyzstan-673f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195977280496:android:998d4c5ef549a5bf747b35",
+        "android_client_info": {
+          "package_name": "com.history.historyofkyrgyzstan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkJirwi7LsZFyyVHWfUrCkNwtftc3fjlA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
