@@ -29,6 +29,13 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
         auth=FirebaseAuth.getInstance()
+        if (auth.currentUser!=null){
+
+            val intent= Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
 
 
     }
@@ -46,6 +53,17 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this@LoginActivity,"login success", Toast.LENGTH_SHORT).show()
+                    MyDb.loadUserData(object :MyCompleteListener{
+                        override fun OnSucces() {
+                            val intent= Intent(this@LoginActivity,MainActivity::class.java)
+                            startActivity(intent)
+                            this@LoginActivity.finish()
+                        }
+
+                        override fun OnFailure() {
+                            Toast.makeText(this@LoginActivity, "Failed to load data", Toast.LENGTH_LONG).show()
+                        }
+                    })
                     val intent= Intent(this,MainActivity::class.java)
                     startActivity(intent)
                     this@LoginActivity.finish()

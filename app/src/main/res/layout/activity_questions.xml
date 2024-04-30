@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuestionsActivity"
+    android:background="?android:attr/colorBackground">
+
+    <LinearLayout
+        android:id="@+id/progress_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/mainColor"
+        android:elevation="5dp"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_question_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1/25"
+            android:textColor="@color/progress"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:background="@color/mainColor"
+            android:progress="20"
+            android:progressTint="@color/progress"
+            android:scaleY="2" />
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        android:layout_margin="16dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progress_layout">
+
+
+        <TextView
+android:gravity="center"
+            android:id="@+id/textOfQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+android:padding="4dp"
+            android:fontFamily="sans-serif-black"
+            android:text="рлоб"
+            android:textSize="30sp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+
+                <Button
+                    android:id="@+id/optionA"
+
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    android:text="Button"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/optionB"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Button"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/optionC"
+
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Button"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/optionD"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Button"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/nextButton"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:backgroundTint="@color/progress"
+                    android:text="ответить"
+                    android:textColor="@color/mainColor"
+                    android:textSize="20sp">
+
+                </Button>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

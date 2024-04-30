@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var username: EditText
@@ -15,8 +16,8 @@ class SignUpActivity : AppCompatActivity() {
     lateinit var email: EditText
     lateinit var pass: EditText
     lateinit var confirm_pass: EditText
-    lateinit var backButton:ImageView
-    lateinit var signUpButton:Button
+    lateinit var backButton: ImageView
+    lateinit var signUpButton: Button
     lateinit var auth:FirebaseAuth
     lateinit var emailStr:String
     lateinit var passwordStr:String
@@ -26,6 +27,8 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+        //zametks
+        MyDb.g_firestore = FirebaseFirestore.getInstance()
         username=findViewById(R.id.username)
         surname=findViewById(R.id.userSecondName)
         email=findViewById(R.id.email_id)
@@ -74,7 +77,7 @@ class SignUpActivity : AppCompatActivity() {
             return false
         }
         if (confirmPasswordStr.compareTo(passwordStr)!=0){
-            Toast.makeText(this@SignUpActivity,"пароли не совпадают",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@SignUpActivity,"пароли не совпадают", Toast.LENGTH_SHORT).show()
             return false
         }
         return true
@@ -84,10 +87,40 @@ class SignUpActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(emailStr, passwordStr)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this@SignUpActivity,"sign up successful",Toast.LENGTH_SHORT).show()
-                    val intent= Intent(this,MainActivity::class.java)
-                    startActivity(intent)
-                    this@SignUpActivity.finish()
+                    Toast.makeText(this@SignUpActivity,"sign up successful", Toast.LENGTH_SHORT).show()
+
+                    //ghjkdocument for user
+                    MyDb.createmyUserData(emailStr, usernameStr, surnameStr, object : MyCompleteListener {
+                        override fun OnSucces() {
+                            MyDb.loadTests(object :MyCompleteListener{
+                                override fun OnSucces() {
+                                    val intent= Intent(this@SignUpActivity,MainActivity::class.java)
+                                    startActivity(intent)
+                                    this@SignUpActivity.finish()
+                                }
+
+                                override fun OnFailure() {
+                                    Toast.makeText(
+                                        this@SignUpActivity,
+                                        "something get wrong",
+                                        Toast.LENGTH_SHORT,
+                                    ).show()
+                                }
+                            })
+
+                            // Implementation of onComplete method
+                        }
+
+                        override fun OnFailure() {
+                            Toast.makeText(
+                                this@SignUpActivity,
+                                "something get wrong",
+                                Toast.LENGTH_SHORT,
+                            ).show()
+                        }
+                    })
+
+
                 } else {
                     // If sign in fails, display a message to the
                     Toast.makeText(
@@ -99,4 +132,6 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
     }
+
+
 }

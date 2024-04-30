@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".StartTestActivity"
+    android:background="?android:attr/colorBackground">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:orientation="vertical"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="45dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/st_test_no"
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/scroll_design"
+
+            android:text="Your "
+            android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="48sp"
+
+            android:gravity="center" />
+
+
+        <TextView
+
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:id="@+id/st_test_name"
+            android:layout_width="match_parent"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeMaxTextSize="48sp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/scroll_design"
+
+            android:gravity="center"
+            android:text="TextViewклвоаааааааааааааааааа латплп"
+
+             />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+
+
+        app:layout_constraintBottom_toTopOf="@+id/start_test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="240dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="104dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="10dp">
+
+                <ImageView
+
+                    android:layout_weight="1"
+                    android:layout_width="25dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/question" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Вопросы"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/st_total_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:text="5"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="240dp"
+            android:layout_weight="1"
+
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="104dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/baseline_arrow_back_ios_new_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/bestScore"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/st_best_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:text="5"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/start_test"
+        android:layout_width="match_parent"
+
+        android:layout_height="0dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+
+        android:layout_marginBottom="32dp"
+        android:layout_weight="1"
+
+        android:text="@string/start_test"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

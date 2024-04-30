@@ -57,8 +57,13 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
     implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-analytics")
+
     implementation("androidx.window:window:1.2.0")
     implementation("androidx.window:window-java:1.2.0")
+
+    implementation("com.squareup.okhttp3:okhttp:4.9.2")
 
 
 }
